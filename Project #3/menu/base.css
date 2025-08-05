@@ -1,0 +1,8 @@
+.menu {
+    width: 345px;
+    min-height: 100vh;
+    background-color: #101012;
+    margin: 0 auto;
+    padding: 20px 15px;
+    box-sizing: border-box;
+}
