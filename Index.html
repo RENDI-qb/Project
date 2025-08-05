@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="background/background.css">
+    <link rel="stylesheet" href="fonts/fonts.css">
+    <link rel="stylesheet" href="menu/base.css">
+    <link rel="stylesheet" href="menu/profile.css">
+    <link rel="stylesheet" href="menu/calendar.css">
+    <title>Linux UI</title>
+</head>
+<body>
+    <div class="menu">
+        <div class="profile-header">
+            <div class="pfp"></div>
+            <div class="profile-text">
+                <div class="username">RENDI</div>
+                <div class="greeting" id="greeting"></div>
+            </div>
+        </div>
+        
+        <div class="calendar-container">
+            <div class="calendar">
+                <div class="calendar-header">
+                    <div class="month-year">month year</div>
+                    <div class="nav-buttons">
+                        <button class="nav-button round prev"></button>
+                        <button class="nav-button round next"></button>
+                    </div>
+                </div>
+                <div class="weekdays">
+                    <div>Mon</div>
+                    <div>Tue</div>
+                    <div>Wed</div>
+                    <div>Thu</div>
+                    <div>Fri</div>
+                    <div>Sat</div>
+                    <div>Sun</div>
+                </div>
+                <div class="days" id="days"></div>
+            </div>
+        </div>
+    </div>
+    <script src="menu/greeting.js"></script>
+    <script src="menu/calendar.js"></script>
+</body>
+</html>
