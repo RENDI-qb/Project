@@ -20,7 +20,6 @@
                 <div class="greeting" id="greeting"></div>
             </div>
         </div>
-        
         <div class="calendar-container">
             <div class="calendar">
                 <div class="calendar-header">
@@ -42,12 +41,11 @@
                 <div class="days" id="days"></div>
             </div>
         </div>
-        
         <div class="task-wrapper">
             <div class="task-container">
                 <div class="task">
                     <div class="task-header">
-                        <h3 class="tasks-title">Today's tasks</h3>
+                        <h3 class="tasks-title"><span class="task-today-icon"></span>Today's tasks</h3>
                         <div class="nav-buttons">
                             <button class="nav-button round add" id="task-add" aria-label="Add task"></button>
                             <button class="nav-button round prev" id="task-prev" aria-label="Previous tasks"></button>
@@ -63,15 +61,55 @@
             </div>
             <div class="task-menu" id="task-menu">
                 <div class="task-header">
-                    <h3 class="tasks-title">Creating a task</h3>
+                    <h3 class="tasks-title"><span class="task-create-icon"></span>Add Task</h3>
+                    <div class="nav-buttons">
+                        <button class="nav-button round close" aria-label="Close menu"></button>
+                    </div>    
                 </div>
-            <div class="task-input-container">
-                <textarea class="task-description-input" placeholder="Enter task description..." rows="5"></textarea>
-                <div class="input-footer">
-                <div class="error-message">Character limit exceeded!</div>
-                <div class="char-counter">0/20</div>
-              </div>
-          </div>
+                <div class="task-header-separator"></div>
+                <div class="task-input-container">
+                    <input type="text" class="task-description-input" placeholder="Enter task description..." maxlength="20">
+                    <div class="char-counter">0/20</div>
+                </div>
+                <div class="reminder-toggle-container">
+                    <span class="reminder-text">Reminders</span>
+                    <label class="reminder-switch">
+                        <input type="checkbox" id="reminder-toggle">
+                        <span class="reminder-slider"></span>
+                    </label>
+                </div>
+                <div class="reminder-options" id="reminder-options" style="display: none;">
+                    <div class="reminder-option">
+                        <span class="option-text">Reminder time</span>
+                        <span class="option-value" id="reminder-time">00.00 00:00</span>
+                    </div>
+                    <div class="reminder-option">
+                        <span class="option-text">Repeat</span>
+                        <span class="option-value">One time</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="task-menu" id="reminder-time-menu" style="display: none;">
+                <div class="task-header" style="justify-content: center;">
+                    <h3 class="tasks-title">Reminder time</h3>
+                </div>
+                <div class="reminder-time-content">
+                    <!-- We'll add time picker elements here later -->
+                </div>
+                <div class="reminder-action-footer">
+                    <button class="reminder-action-btn cancel">
+                        <span class="btn-text">Cancel</span>
+                    </button>
+                    <button class="reminder-action-btn continue">
+                        <span class="btn-text">Continue</span>
+                    </button>
+                </div>
+            </div>              
+            <div class="task-menu" id="repeat-menu" style="display: none;">
+
+            </div>
+        </div>
     </div>
     <script src="menu/greeting.js"></script>
     <script src="menu/calendar.js"></script>

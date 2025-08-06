@@ -44,14 +44,14 @@
     background-image: url('../icons/Arrow-left.svg');
     background-repeat: no-repeat;
     background-position: center;
-    background-size: 12px;
+    background-size: 14px;
 }
 
 .calendar-header .nav-button.round.next {
     background-image: url('../icons/Arrow-right.svg');
     background-repeat: no-repeat;
     background-position: center;
-    background-size: 12px;
+    background-size: 14px;
 }
 
 .calendar-header .nav-button.round:hover {

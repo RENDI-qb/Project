@@ -1,16 +1,7 @@
-<?xml version="1.0" standalone="no"?>
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 20010904//EN"
- "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
-<svg version="1.0" xmlns="http://www.w3.org/2000/svg"
- width="100.000000pt" height="100.000000pt" viewBox="0 0 100.000000 100.000000"
- preserveAspectRatio="xMidYMid meet">
+<?xml version="1.0" encoding="utf-8"?>
 
-<g transform="translate(0.000000,100.000000) scale(0.100000,-0.100000)"
-fill="#e2e2e2" stroke="none">
-<path d="M464 806 c-16 -13 -19 -29 -22 -129 l-4 -115 -115 -4 c-100 -3 -116
--6 -129 -22 -18 -25 -18 -47 0 -72 13 -16 29 -19 129 -22 l115 -4 4 -115 c3
--100 6 -116 22 -129 25 -18 47 -18 72 0 16 13 19 29 22 129 l4 115 115 4 c100
-3 116 6 129 22 18 25 18 47 0 72 -13 16 -29 19 -129 22 l-115 4 -4 115 c-3
-100 -6 116 -22 129 -11 8 -27 14 -36 14 -9 0 -25 -6 -36 -14z"/>
+<svg width="100px" height="100px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Edit / Add_Plus">
+<path id="Vector" d="M6 12H12M12 12H18M12 12V18M12 12V6" stroke="#e2e2e2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 </g>
 </svg>
