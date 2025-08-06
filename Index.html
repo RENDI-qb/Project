@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="menu/base.css">
     <link rel="stylesheet" href="menu/profile.css">
     <link rel="stylesheet" href="menu/calendar.css">
+    <link rel="stylesheet" href="menu/task.css">
     <title>Linux UI</title>
 </head>
 <body>
@@ -41,8 +42,26 @@
                 <div class="days" id="days"></div>
             </div>
         </div>
+        
+        <div class="task-container">
+            <div class="task">
+                <div class="task-header">
+                    <h3 class="tasks-title">Today's tasks</h3>
+                    <div class="nav-buttons">
+                        <button class="nav-button round prev" id="task-prev"></button>
+                        <button class="nav-button round next" id="task-next"></button>
+                    </div>
+                </div>
+                <div class="tasks-content" id="tasks-content">
+                    <div class="empty-state" id="emptyState">
+                        <div class="empty-text">There are no tasks now</div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <script src="menu/greeting.js"></script>
     <script src="menu/calendar.js"></script>
+    <script src="menu/task.js"></script>
 </body>
 </html>

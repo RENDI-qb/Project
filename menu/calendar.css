@@ -30,23 +30,8 @@
     padding: 0 10px;
 }
 
-.nav-buttons {
-    display: flex;
-    gap: 8px;
-}
-
-.nav-button {
-    background: none;
-    border: none;
-    color: #E2E2E2;
+.calendar-header .nav-button.round {
     cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0;
-}
-
-.nav-button.round {
     width: 28px;
     height: 28px;
     border-radius: 50%;
@@ -55,22 +40,31 @@
     transition: all 0.2s;
 }
 
-.nav-button.round.prev {
+.calendar-header .nav-button.round.prev {
     background-image: url('../icons/Arrow-left.svg');
     background-repeat: no-repeat;
     background-position: center;
     background-size: 12px;
 }
 
-.nav-button.round.next {
+.calendar-header .nav-button.round.next {
     background-image: url('../icons/Arrow-right.svg');
     background-repeat: no-repeat;
     background-position: center;
     background-size: 12px;
 }
 
-.nav-button.round:hover {
+.calendar-header .nav-button.round:hover {
     transform: scale(1.1);
+}
+
+.calendar-header .nav-button.round:active {
+    background-color: #353536;
+}
+
+.nav-buttons {
+    display: flex;
+    gap: 8px;
 }
 
 .month-year {

@@ -1,0 +1,100 @@
+.task-container {
+    width: 315px;
+    height: 310px;
+    background-color: #1a1a1c;
+    border-radius: 20px;
+    margin: 15px auto;
+    box-sizing: border-box;
+    padding: 15px;
+    box-shadow: 
+        0 8px 16px rgba(0, 0, 0, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.task {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.task-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    padding: 0 5px;
+}
+
+.tasks-title {
+    font-size: 1rem;
+    font-weight: 400;
+    color: #E2E2E2;
+    margin: 0;
+    letter-spacing: 0.3px;
+}
+
+.task-header .nav-button.round {
+    cursor: pointer;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background-color: #272727;
+    border: 1px solid #353536;
+    transition: all 0.2s;
+}
+
+.task-header .nav-button.round.prev {
+    background-image: url('../icons/Arrow-down.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 12px;
+}
+
+.task-header .nav-button.round.next {
+    background-image: url('../icons/Arrow-up.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 12px;
+}
+
+.task-header .nav-button.round:hover {
+    transform: scale(1.1);
+}
+
+.task-header .nav-button.round:active {
+    background-color: #353536;
+}
+
+.task-header .nav-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+.empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    text-align: center;
+    padding: 20px;
+    pointer-events: none;
+    position: relative;
+}
+
+.empty-state::before {
+    content: "";
+    display: block;
+    width: 90px;
+    height: 90px;
+    background-image: url('../images/empty-state.gif');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.empty-text {
+    font-size: 0.8rem;
+    color: #818181;
+}
