@@ -63,10 +63,15 @@
             </div>
             <div class="task-menu" id="task-menu">
                 <div class="task-header">
-                    <h3 class="tasks-title">Add New Task</h3>
+                    <h3 class="tasks-title">Creating a task</h3>
                 </div>
-            </div>        
-        </div>
+            <div class="task-input-container">
+                <textarea class="task-description-input" placeholder="Enter task description..." rows="5"></textarea>
+                <div class="input-footer">
+                <div class="error-message">Character limit exceeded!</div>
+                <div class="char-counter">0/20</div>
+              </div>
+          </div>
     </div>
     <script src="menu/greeting.js"></script>
     <script src="menu/calendar.js"></script>
