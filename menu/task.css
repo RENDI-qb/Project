@@ -56,14 +56,14 @@
 }
 
 .task-header .nav-button.round.prev {
-    background-image: url('../icons/Arrow-down.svg');
+    background-image: url('../icons/Arrow-up.svg');
     background-repeat: no-repeat;
     background-position: center;
     background-size: 14px;
 }
 
 .task-header .nav-button.round.next {
-    background-image: url('../icons/Arrow-up.svg');
+    background-image: url('../icons/Arrow-down.svg');
     background-repeat: no-repeat;
     background-position: center;
     background-size: 14px;
@@ -73,8 +73,8 @@
     position: absolute;
     bottom: 15px;
     left: 15px;
-    width: 36px;
-    height: 36px;
+    width: 38px;
+    height: 38px;
     border-radius: 50%;
     background-color: #0984FF;
     border: none;
@@ -95,8 +95,8 @@
 .task-header .nav-button.round.add::before {
     content: "";
     display: block;
-    width: 16px;
-    height: 16px;
+    width: 18px;
+    height: 18px;
     background-image: url('../icons/Add.svg');
     background-repeat: no-repeat;
     background-position: center;
@@ -251,8 +251,8 @@
     top: 50%;
     transform: translateY(-50%);
     font-size: 0.75rem;
-    color: #818181;
-    background-color: #202020;
+    color: #8b8b8b;
+    background-color: #3d3d3d;
     padding: 3px 8px;
     border-radius: 10px;
     transition: all 0.3s cubic-bezier(0.22, 0.61, 0.36, 1);
@@ -558,6 +558,11 @@
 .repeat-options {
     padding: 10px 0;
     margin-bottom: 60px;
+    max-height: calc(100% - 120px);
+    overflow-y: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    scroll-behavior: smooth;
 }
 
 .repeat-option {
@@ -568,6 +573,7 @@
     cursor: pointer;
     transition: background-color 0.2s ease;
     border-radius: 8px;
+    will-change: transform;
 }
 
 .repeat-option .option-text {
@@ -577,12 +583,12 @@
 
 .repeat-option.selected {
     background-color: rgba(255, 255, 255, 0.03);
-    border-radius: 8px;
+    border-radius: 10px;
 }
 
 .repeat-option .option-checkmark {
-    width: 18px;
-    height: 18px;
+    width: 20px;
+    height: 20px;
     border: 1.5px solid #353536;
     border-radius: 50%;
 }
@@ -614,4 +620,50 @@
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
+}
+
+#repeat-menu .nav-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+#repeat-menu .nav-button.round {
+    cursor: pointer;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background-color: #272727;
+    border: 1px solid #353536;
+    transition: all 0.2s;
+}
+
+#repeat-menu .nav-button.round.prev {
+    background-image: url('../icons/Arrow-up.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 14px;
+}
+
+#repeat-menu .nav-button.round.next {
+    background-image: url('../icons/Arrow-down.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 14px;
+}
+
+#repeat-menu .nav-button.round:hover {
+    transform: scale(1.1);
+}
+
+#repeat-menu .nav-button.round:active {
+    background-color: #353536;
+}
+
+
+.tasks-content {
+    overscroll-behavior: contain;
+}
+
+.repeat-options {
+    overscroll-behavior: contain;
 }

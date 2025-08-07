@@ -24,13 +24,20 @@ document.addEventListener('DOMContentLoaded', function() {
     const cancelRepeatBtn = repeatMenu.querySelector('.reminder-action-btn.cancel');
     const applyRepeatBtn = repeatMenu.querySelector('.reminder-action-btn.continue');
     const repeatOptions = repeatMenu.querySelectorAll('.repeat-option');
+    const repeatOptionsContainer = repeatMenu.querySelector('.repeat-options');
 
     let selectedRepeatOption = 'once';
     updateRepeatOptionText();
 
     tasksContent.addEventListener('wheel', function(e) {
         e.preventDefault();
-    }, { passive: false });
+    });
+
+    if (repeatOptionsContainer) {
+        repeatOptionsContainer.addEventListener('wheel', function(e) {
+            e.preventDefault();
+        });
+    }
     
     taskPrevBtn.addEventListener('click', function() {
         tasksContent.scrollBy({ top: -50, behavior: 'smooth' });
@@ -228,5 +235,20 @@ document.addEventListener('DOMContentLoaded', function() {
         repeatOption.textContent = text;
     }
 
+    const repeatPrevBtn = repeatMenu.querySelector('.nav-button.round.prev');
+    const repeatNextBtn = repeatMenu.querySelector('.nav-button.round.next');
+
+    if (repeatPrevBtn && repeatNextBtn && repeatOptionsContainer) {
+        repeatPrevBtn.addEventListener('click', function() {
+            repeatOptionsContainer.scrollBy({ top: -50, behavior: 'smooth' });
+        });
+
+        repeatNextBtn.addEventListener('click', function() {
+            repeatOptionsContainer.scrollBy({ top: 50, behavior: 'smooth' });
+        });
+    } else {
+        console.error('One of the repeat menu elements is missing');
+    }
+    
     emptyState.style.display = tasksContent.children.length > 1 ? 'none' : 'flex';
 });
