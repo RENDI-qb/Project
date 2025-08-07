@@ -21,14 +21,14 @@ document.addEventListener('DOMContentLoaded', function() {
     
     const cancelTimeBtn = reminderTimeMenu.querySelector('.reminder-action-btn.cancel');
     const continueTimeBtn = reminderTimeMenu.querySelector('.reminder-action-btn.continue');
-    const cancelRepeatBtn = repeatMenu.querySelector('.reminder-action-btn.cancel');
-    const applyRepeatBtn = repeatMenu.querySelector('.reminder-action-btn.continue');
     const repeatOptions = repeatMenu.querySelectorAll('.repeat-option');
     const repeatOptionsContainer = repeatMenu.querySelector('.repeat-options');
-
+    const repeatCloseBtn = repeatMenu.querySelector('.nav-button.round.close');
+    
     let selectedRepeatOption = 'once';
     updateRepeatOptionText();
 
+    // Prevent scrolling on these elements
     tasksContent.addEventListener('wheel', function(e) {
         e.preventDefault();
     });
@@ -39,6 +39,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
+    // Task navigation buttons
     taskPrevBtn.addEventListener('click', function() {
         tasksContent.scrollBy({ top: -50, behavior: 'smooth' });
     });
@@ -47,6 +48,7 @@ document.addEventListener('DOMContentLoaded', function() {
         tasksContent.scrollBy({ top: 50, behavior: 'smooth' });
     });
     
+    // Task menu toggle
     taskAddBtn.addEventListener('click', function(e) {
         e.stopPropagation();
         
@@ -88,6 +90,7 @@ document.addEventListener('DOMContentLoaded', function() {
         reminderOptions.style.display = 'none';
     }
 
+    // Task input validation
     taskDescriptionInput.addEventListener('input', function() {
         const currentLength = this.value.length;
         charCounter.textContent = `${currentLength}/${MAX_CHARS}`;
@@ -123,6 +126,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
+    // Reminder toggle
     reminderToggle.addEventListener('change', function() {
         if (this.checked) {
             reminderOptions.style.display = 'block';
@@ -142,6 +146,7 @@ document.addEventListener('DOMContentLoaded', function() {
         reminderTime.textContent = `${day}.${month} ${hours}:${minutes}`;
     }
 
+    // Reminder time menu
     reminderTime.addEventListener('click', function(e) {
         e.stopPropagation();
         if (reminderToggle.checked) {
@@ -152,6 +157,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
+    // Repeat option click handler
     repeatOption.addEventListener('click', function(e) {
         e.stopPropagation();
         if (reminderToggle.checked) {
@@ -165,6 +171,7 @@ document.addEventListener('DOMContentLoaded', function() {
             repeatMenu.classList.add('show');
         }, 10);
         
+        // Highlight selected option
         repeatOptions.forEach(option => {
             option.classList.remove('selected');
             if (option.dataset.value === selectedRepeatOption) {
@@ -187,6 +194,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 300);
     }
 
+    // Reminder time menu buttons
     cancelTimeBtn.addEventListener('click', function(e) {
         e.stopPropagation();
         closeReminderTimeMenu();
@@ -197,22 +205,20 @@ document.addEventListener('DOMContentLoaded', function() {
         closeReminderTimeMenu();
     });
 
-    cancelRepeatBtn.addEventListener('click', function(e) {
+    // New repeat menu close button
+    repeatCloseBtn.addEventListener('click', function(e) {
         e.stopPropagation();
         closeRepeatMenu();
     });
 
-    applyRepeatBtn.addEventListener('click', function(e) {
-        e.stopPropagation();
-        updateRepeatOptionText();
-        closeRepeatMenu();
-    });
-
+    // Repeat options selection - now applies immediately on click
     repeatOptions.forEach(option => {
         option.addEventListener('click', function() {
             repeatOptions.forEach(opt => opt.classList.remove('selected'));
             this.classList.add('selected');
             selectedRepeatOption = this.dataset.value;
+            updateRepeatOptionText();
+            closeRepeatMenu(); // Close menu after selection
         });
     });
 
@@ -235,6 +241,7 @@ document.addEventListener('DOMContentLoaded', function() {
         repeatOption.textContent = text;
     }
 
+    // Repeat options scroll buttons (if needed)
     const repeatPrevBtn = repeatMenu.querySelector('.nav-button.round.prev');
     const repeatNextBtn = repeatMenu.querySelector('.nav-button.round.next');
 
@@ -246,9 +253,9 @@ document.addEventListener('DOMContentLoaded', function() {
         repeatNextBtn.addEventListener('click', function() {
             repeatOptionsContainer.scrollBy({ top: 50, behavior: 'smooth' });
         });
-    } else {
-        console.error('One of the repeat menu elements is missing');
     }
     
+    // Show empty state if no tasks
     emptyState.style.display = tasksContent.children.length > 1 ? 'none' : 'flex';
+    
 });

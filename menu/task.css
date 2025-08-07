@@ -558,7 +558,6 @@
 .repeat-options {
     padding: 10px 0;
     margin-bottom: 60px;
-    max-height: calc(100% - 120px);
     overflow-y: auto;
     scrollbar-width: none;
     -ms-overflow-style: none;
@@ -620,50 +619,4 @@
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
-}
-
-#repeat-menu .nav-buttons {
-    display: flex;
-    gap: 8px;
-}
-
-#repeat-menu .nav-button.round {
-    cursor: pointer;
-    width: 28px;
-    height: 28px;
-    border-radius: 50%;
-    background-color: #272727;
-    border: 1px solid #353536;
-    transition: all 0.2s;
-}
-
-#repeat-menu .nav-button.round.prev {
-    background-image: url('../icons/Arrow-up.svg');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 14px;
-}
-
-#repeat-menu .nav-button.round.next {
-    background-image: url('../icons/Arrow-down.svg');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 14px;
-}
-
-#repeat-menu .nav-button.round:hover {
-    transform: scale(1.1);
-}
-
-#repeat-menu .nav-button.round:active {
-    background-color: #353536;
-}
-
-
-.tasks-content {
-    overscroll-behavior: contain;
-}
-
-.repeat-options {
-    overscroll-behavior: contain;
 }
