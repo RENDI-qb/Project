@@ -25,7 +25,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const applyRepeatBtn = repeatMenu.querySelector('.reminder-action-btn.continue');
     const repeatOptions = repeatMenu.querySelectorAll('.repeat-option');
 
-    // По умолчанию выбран вариант "Once"
     let selectedRepeatOption = 'once';
     updateRepeatOptionText();
 
@@ -159,7 +158,6 @@ document.addEventListener('DOMContentLoaded', function() {
             repeatMenu.classList.add('show');
         }, 10);
         
-        // Сбрасываем все выделения
         repeatOptions.forEach(option => {
             option.classList.remove('selected');
             if (option.dataset.value === selectedRepeatOption) {
@@ -203,19 +201,14 @@ document.addEventListener('DOMContentLoaded', function() {
         closeRepeatMenu();
     });
 
-    // Обработка выбора варианта повторения
     repeatOptions.forEach(option => {
         option.addEventListener('click', function() {
-            // Удаляем выделение у всех вариантов
             repeatOptions.forEach(opt => opt.classList.remove('selected'));
-            // Добавляем выделение выбранному варианту
             this.classList.add('selected');
-            // Сохраняем выбранное значение
             selectedRepeatOption = this.dataset.value;
         });
     });
 
-    // Обновление текста выбранного варианта повторения
     function updateRepeatOptionText() {
         let text = 'One time';
         switch(selectedRepeatOption) {
