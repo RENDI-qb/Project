@@ -554,3 +554,44 @@
 .reminder-action-btn.continue:hover::after {
     opacity: 1;
 }
+
+.repeat-options {
+    padding: 10px 0;
+    margin-bottom: 60px;
+}
+
+.repeat-option {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 15px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    border-radius: 8px;
+}
+
+.repeat-option .option-text {
+    font-size: 0.95rem;
+    color: #E2E2E2;
+}
+
+.repeat-option.selected {
+    background-color: rgba(255, 255, 255, 0.03);
+    border-radius: 8px;
+}
+
+.repeat-option .option-checkmark {
+    width: 18px;
+    height: 18px;
+    border: 1.5px solid #353536;
+    border-radius: 50%;
+}
+
+.repeat-option.selected .option-checkmark {
+    background-color: #0984FF;
+    border-color: #0984FF;
+    background-image: url('../icons/Checkmark.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 10px;
+}

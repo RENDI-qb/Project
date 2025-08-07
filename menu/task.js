@@ -21,6 +21,13 @@ document.addEventListener('DOMContentLoaded', function() {
     
     const cancelTimeBtn = reminderTimeMenu.querySelector('.reminder-action-btn.cancel');
     const continueTimeBtn = reminderTimeMenu.querySelector('.reminder-action-btn.continue');
+    const cancelRepeatBtn = repeatMenu.querySelector('.reminder-action-btn.cancel');
+    const applyRepeatBtn = repeatMenu.querySelector('.reminder-action-btn.continue');
+    const repeatOptions = repeatMenu.querySelectorAll('.repeat-option');
+
+    // По умолчанию выбран вариант "Once"
+    let selectedRepeatOption = 'once';
+    updateRepeatOptionText();
 
     tasksContent.addEventListener('wheel', function(e) {
         e.preventDefault();
@@ -142,17 +149,36 @@ document.addEventListener('DOMContentLoaded', function() {
     repeatOption.addEventListener('click', function(e) {
         e.stopPropagation();
         if (reminderToggle.checked) {
-            repeatMenu.style.display = 'block';
-            setTimeout(() => {
-                repeatMenu.classList.add('show');
-            }, 10);
+            openRepeatMenu();
         }
     });
+
+    function openRepeatMenu() {
+        repeatMenu.style.display = 'block';
+        setTimeout(() => {
+            repeatMenu.classList.add('show');
+        }, 10);
+        
+        // Сбрасываем все выделения
+        repeatOptions.forEach(option => {
+            option.classList.remove('selected');
+            if (option.dataset.value === selectedRepeatOption) {
+                option.classList.add('selected');
+            }
+        });
+    }
 
     function closeReminderTimeMenu() {
         reminderTimeMenu.classList.remove('show');
         setTimeout(() => {
             reminderTimeMenu.style.display = 'none';
+        }, 300);
+    }
+
+    function closeRepeatMenu() {
+        repeatMenu.classList.remove('show');
+        setTimeout(() => {
+            repeatMenu.style.display = 'none';
         }, 300);
     }
 
@@ -165,6 +191,49 @@ document.addEventListener('DOMContentLoaded', function() {
         e.stopPropagation();
         closeReminderTimeMenu();
     });
+
+    cancelRepeatBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        closeRepeatMenu();
+    });
+
+    applyRepeatBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        updateRepeatOptionText();
+        closeRepeatMenu();
+    });
+
+    // Обработка выбора варианта повторения
+    repeatOptions.forEach(option => {
+        option.addEventListener('click', function() {
+            // Удаляем выделение у всех вариантов
+            repeatOptions.forEach(opt => opt.classList.remove('selected'));
+            // Добавляем выделение выбранному варианту
+            this.classList.add('selected');
+            // Сохраняем выбранное значение
+            selectedRepeatOption = this.dataset.value;
+        });
+    });
+
+    // Обновление текста выбранного варианта повторения
+    function updateRepeatOptionText() {
+        let text = 'One time';
+        switch(selectedRepeatOption) {
+            case 'daily':
+                text = 'Every day';
+                break;
+            case 'weekly':
+                text = 'Every week';
+                break;
+            case 'monthly':
+                text = 'Every month';
+                break;
+            case 'yearly':
+                text = 'Every year';
+                break;
+        }
+        repeatOption.textContent = text;
+    }
 
     emptyState.style.display = tasksContent.children.length > 1 ? 'none' : 'flex';
 });
