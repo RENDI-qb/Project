@@ -595,3 +595,23 @@
     background-position: center;
     background-size: 10px;
 }
+
+.reminder-time-icon {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-image: url('../icons/Reminder-time.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+.repeat-icon {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-image: url('../icons/Repeat.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
