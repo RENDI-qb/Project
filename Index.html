@@ -81,7 +81,7 @@
                 <div class="reminder-options" id="reminder-options" style="display: none;">
                     <div class="reminder-option">
                         <span class="option-text">Reminder time</span>
-                        <span class="option-value" id="reminder-time">00.00 00:00</span>
+                        <span class="option-value" id="reminder-time">00, 00:00</span>
                     </div>
                     <div class="reminder-option">
                         <span class="option-text">Repeat</span>
@@ -91,9 +91,10 @@
             </div>
             
             <div class="task-menu" id="reminder-time-menu" style="display: none;">
-                <div class="task-header" style="justify-content: center;">
-                    <h3 class="tasks-title">Reminder time</h3>
+                <div class="task-header">
+                    <h3 class="tasks-title"><span class="reminder-time-icon"></span>Reminder time</h3>
                 </div>
+                <div class="task-header-separator"></div>
                 <div class="reminder-time-content">
                     <!-- We'll add time picker elements here later -->
                 </div>
@@ -106,10 +107,14 @@
                     </button>
                 </div>
             </div>              
-            <div class="task-menu" id="repeat-menu" style="display: none;">
-                <div class="task-header" style="justify-content: center;">
-                    <h3 class="tasks-title">Repeat</h3>
+            <div class="task-menu" id="repeat-menu">
+                <div class="task-header">
+                    <h3 class="tasks-title"><span class="repeat-icon"></span>Repeat</h3>
+                    <div class="nav-buttons">
+                        <button class="nav-button round close" aria-label="Close menu"></button>
+                   </div>    
                 </div>
+                <div class="task-header-separator"></div>
                 <div class="repeat-options">
                     <div class="repeat-option" data-value="once">
                         <span class="option-text">Once</span>
@@ -131,14 +136,6 @@
                         <span class="option-text">Every year</span>
                         <span class="option-checkmark"></span>
                     </div>
-                </div>
-                <div class="reminder-action-footer">
-                    <button class="reminder-action-btn cancel">
-                        <span class="btn-text">Cancel</span>
-                    </button>
-                    <button class="reminder-action-btn continue">
-                        <span class="btn-text">Apply</span>
-                    </button>
                 </div>
             </div>
         </div>
