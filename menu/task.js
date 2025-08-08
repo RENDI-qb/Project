@@ -145,6 +145,17 @@ document.addEventListener('DOMContentLoaded', function() {
         reminderTime.textContent = `${day}, ${hours}:${minutes}`;
     }
 
+    // Update time every 30 seconds for better accuracy
+    setInterval(updateReminderTime, 30000);
+
+    // Also update time every minute change (when seconds = 0)
+    const now = new Date();
+    const delayToNextMinute = (60 - now.getSeconds()) * 1000;
+    setTimeout(function() {
+        updateReminderTime();
+        setInterval(updateReminderTime, 60000);
+    }, delayToNextMinute);
+
     // Reminder time menu
     reminderTime.addEventListener('click', function(e) {
         e.stopPropagation();
@@ -257,4 +268,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // Show empty state if no tasks
     emptyState.style.display = tasksContent.children.length > 1 ? 'none' : 'flex';
     
+    // Initial time update
+    updateReminderTime();
 });
