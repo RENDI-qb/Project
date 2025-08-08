@@ -139,11 +139,10 @@ document.addEventListener('DOMContentLoaded', function() {
     function updateReminderTime() {
         const now = new Date();
         const day = String(now.getDate()).padStart(2, '0');
-        const month = String(now.getMonth() + 1).padStart(2, '0');
         const hours = String(now.getHours()).padStart(2, '0');
         const minutes = String(now.getMinutes()).padStart(2, '0');
         
-        reminderTime.textContent = `${day}.${month} ${hours}:${minutes}`;
+        reminderTime.textContent = `${day}, ${hours}:${minutes}`;
     }
 
     // Reminder time menu
