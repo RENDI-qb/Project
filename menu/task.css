@@ -251,16 +251,19 @@
     top: 50%;
     transform: translateY(-50%);
     font-size: 0.75rem;
-    color: #8b8b8b;
-    background-color: #3d3d3d;
+    color: #a0a0a0;
+    background-color: rgba(255, 255, 255, 0.08);
     padding: 3px 8px;
     border-radius: 10px;
     transition: all 0.3s cubic-bezier(0.22, 0.61, 0.36, 1);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(2px);
 }
 
 .char-counter.limit-exceeded {
     color: #ff6b6b;
     background-color: rgba(255, 107, 107, 0.1);
+    border-color: rgba(255, 107, 107, 0.2);
     animation: shake 0.5s cubic-bezier(.36,.07,.19,.97) both;
 }
 
@@ -581,7 +584,7 @@
 }
 
 .repeat-option.selected {
-    background-color: rgba(255, 255, 255, 0.03);
+    background-color: rgba(255, 255, 255, 0.05);
     border-radius: 10px;
 }
 
